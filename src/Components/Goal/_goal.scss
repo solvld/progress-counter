@@ -13,10 +13,12 @@
   .top-content {
     display: flex;
     justify-content: space-between;
+    margin: 0 4px;
     .percents {
       color: $text-color;
     }
     .settings {
+      cursor: pointer;
       color: $bg-main;
     }
   }
@@ -34,6 +36,7 @@
     }
     .button-plus {
       all: unset;
+      cursor: pointer;
 
       display: flex;
       align-items: center;
@@ -43,11 +46,11 @@
       height: 40px;
       border-radius: 50%;
       background-color: $line-transparent;
-      stroke: $red;
+      stroke: $grey;
     }
   }
   .progress-bar {
-      position: absolute;
+      position: relative;
       height: 4px;
       width: 150px;
     }

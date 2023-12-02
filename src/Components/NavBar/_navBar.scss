@@ -2,7 +2,11 @@
 
 nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 40px;
 
   h1 {
     color: $text-color;
@@ -13,7 +17,7 @@ nav {
   .add-button{
     all: unset;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 10px 12px;
     border-radius: 15px;
     border: 1px solid $text-color;
   }
