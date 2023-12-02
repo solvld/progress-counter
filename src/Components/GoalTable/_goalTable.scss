@@ -1,0 +1,6 @@
+.GoalTable{
+  margin: 50px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 265px); 
+}
