@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.Popup {
+  .test{
+    height: 50px;
+    width: 50px;
+  }
+  .picker{
+    all: unset;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    &:focus{
+      border: 1px solid
+    }
+  }
+}
