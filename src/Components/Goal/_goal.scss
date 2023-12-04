@@ -1,119 +1,132 @@
 @import "../../styles/variables";
 
 .Goal {
-  max-width: 300px;
-  height: 200px;
+  position: relative;
   background-color: $line-transparent;
   border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  padding: 24px 16px;
-  .top-content {
+  overflow: hidden;
+  height: 200px;
+  .content{
+    position: relative;
+    z-index: 10;
+    max-width: 300px;
+    height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 0 4px;
-    .percents {
-      color: $text-color;
-    }
+  
+    padding: 24px 16px;
 
-    .settings{
-      position: relative;
-      .settings-btn {
-        cursor: pointer;
-        color: $bg-main;
+    .top-content {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 4px;
+      .percents {
+        color: $text-color;
       }
 
-      .settings-menu{
-        position: absolute;
-        bottom: -66px;
-        right: -14px;
-        background-color: $line;
-        border-radius: 8px;
-        transform: scale(0);
-        transform-origin: top;
-        opacity: 1;
-        transition: transform 0.2s ease-in-out;
-        
-        li{
-          z-index: 1;
-          height: 25px;
-          border-radius: 0;
-          display: flex;
-          justify-content: start;
-          align-items: center;
+      .settings{
+        position: relative;
+        .settings-btn {
           cursor: pointer;
-          padding: 2px 8px;
+          color: $bg-main;
+        }
+
+        .settings-menu{
+          position: absolute;
+          bottom: -66px;
+          right: -14px;
           background-color: $line;
-          font-size: 12px;
-          transition: all 0.1s ease-in;
+          border-radius: 8px;
+          transform: scale(0);
+          transform-origin: top;
+          opacity: 1;
+          transition: transform 0.2s ease-in-out;
+          
+          li{
+            z-index: 1;
+            height: 25px;
+            border-radius: 0;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            cursor: pointer;
+            padding: 2px 8px;
+            background-color: $line;
+            font-size: 12px;
+            transition: all 0.1s ease-in;
 
-          &:first-child{
-            border-radius: 8px 8px 0px 0px;
-            border-bottom: 0.8px $line-border solid;
-          }
-          &:last-child{
-            border-radius: 0px 0px 8px 8px;
-            border-top: 0.8px $line-border solid;
-          }
+            &:first-child{
+              border-radius: 8px 8px 0px 0px;
+              border-bottom: 0.8px $line-border solid;
+            }
+            &:last-child{
+              border-radius: 0px 0px 8px 8px;
+              border-top: 0.8px $line-border solid;
+            }
 
-          &:hover{
-            background-color: darken($line, 2%);
-          }
-          svg{
-            margin-right: 4px;
+            &:hover{
+              background-color: darken($line, 2%);
+            }
+            svg{
+              margin-right: 4px;
+            }
           }
         }
       }
-    }
 
-    .settings.active{
-      .settings-menu{
-        transform: scale(1);
-        opacity: 1;
+      .settings.active{
+        .settings-menu{
+          transform: scale(1);
+          opacity: 1;
+        }
       }
     }
-  }
-  .bottom-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .bottom-left {
-      .description {
-        color: $text-color;
-      }
-      .progress {
-        color: $text-color;
-        font-size: 12px;
-      }
-    }
-    .button-plus {
-      all: unset;
-      cursor: pointer;
-
+    .bottom-content {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: $line-transparent;
-      stroke: $grey;
-
-      transition: background-color 0.25s ease-in-out;
-      &:hover{
-        background-color: lighten($line-transparent, 5%);
+      .bottom-left {
+        .description {
+          color: $text-color;
+        }
+        .progress {
+          color: $text-color;
+          font-size: 12px;
+        }
       }
-      &:active{
-        scale: 0.85;
+      .button-plus {
+        all: unset;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $line-transparent;
+        stroke: $grey;
+
+        transition: background-color 0.25s ease-in-out;
+        &:hover{
+          background-color: lighten($line-transparent, 5%);
+        }
+        &:active{
+          scale: 0.85;
+        }
       }
     }
   }
-  .progress-bar {
-      position: relative;
-      height: 4px;
-      width: 150px;
-    }
+  .progress-fill {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    height: 0%;
+    width: 100%;
+
+    transition: height 0.5s ease;
+  }
+  
 }
