@@ -5,15 +5,15 @@ import "./_popup.scss"
 
 const colorNames = Object.keys(colors);
 
-function Popup() {
+function Popup({active, setActive}) {
   const [color, setColor] = useState(colors.$grey);
   
   const goalStyle = { backgroundColor: color };
 
-  
+  const clickHandler = () => setActive(false)
 
   return (
-		<div className={'Popup show'}>
+		<div className={active ? 'Popup active' : 'Popup'}>
 			<div className='PopupBox'>
 				<input type='text' placeholder='Goal' />
 
@@ -42,8 +42,8 @@ function Popup() {
 				</div>
 
 				<div className='bottom'>
-					<button>Cancel</button>
-					<button style={goalStyle}>Add</button>
+					<button onClick={clickHandler}>Cancel</button>
+					<button onClick={clickHandler} style={goalStyle}>Add</button>
 				</div>
 			</div>
 		</div>
