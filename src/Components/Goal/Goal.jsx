@@ -95,7 +95,7 @@ function Goal(props) {
 				</div>
 				<div className='bottom-content'>
 					<div className='bottom-left'>
-						<p className='description'>Read 100 books</p>
+						<p className='description'>{props.text}</p>
 						<p className='progress'>
 							{progress} / {props.amount}
 						</p>

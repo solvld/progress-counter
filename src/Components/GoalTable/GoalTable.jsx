@@ -4,22 +4,20 @@ import { colors } from "../../colors"
 
 import "./_goalTable.scss"
 
-function GoalTable() {
+function GoalTable({ allGoals }) {
 
   return (
 		<div className='GoalTable'>
-			<Goal color={colors.$red} amount={10} step={1}>
-				{'Read 100 books'}
-			</Goal>
-			<Goal color={colors.$green} amount={44} step={3}>
-				{'Read 44 books'}
-			</Goal>
-			<Goal color={colors.$blue} amount={20} step={5}>
-				{'Read 20 books'}
-			</Goal>
-			<Goal color={colors.$goldenYellow} amount={100} step={10}>
-				{'Read 1000 books'}
-			</Goal>
+			{allGoals.map(({id, text, amount, step, color, count}) => (
+				<Goal
+					text={text}
+					color={colors[color]}
+					amount={amount}
+					step={step}
+          key={id}
+          count={count}
+				/>
+			))}
 		</div>
 	)
 }

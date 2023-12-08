@@ -43,7 +43,8 @@ function Popup({active, setActive}) {
 
 				<div className='bottom'>
 					<button onClick={clickHandler}>Cancel</button>
-					<button onClick={clickHandler} style={goalStyle}>Add</button>
+					<button type="submit"
+          onClick={clickHandler} style={goalStyle}>Add</button>
 				</div>
 			</div>
 		</div>
