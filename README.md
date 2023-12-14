@@ -2,7 +2,7 @@ CRUD app for set your goals and keep track progress.
 
 [X] - create new
 
-[] - store in local storage
+[X] - store in local storage
 
 [] - close settings menu on click (useEffect)
 

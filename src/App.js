@@ -7,12 +7,21 @@ import Popup from './Components/Popup/Popup';
 
 function App() {
   const [popupActive, setPopupActive] = useState(false);
-  const [goals, setGoals] = useState([
-    {id: 0, goal: 'Reed 100 books', amount: 100, step: 10, count: 30, color: '#FF4E78' },
-    {id: 2, goal: 'Reed 100 books', amount: 24, step: 6, count: 4, color: "#5D5CE6" }
-  ]);
+  const [goals, setGoals] = useState([]);
 
-  
+  const sample = [
+    {id: 0, goal: 'Reed 10 books', amount: 10, step: 1, count: 4, color: '#0A84FF' },
+    {id: 1, goal: '100 Push-ups', amount: 100, step: 20, count: 20, color: '#FE9F07' }
+  ]
+
+  useEffect(() => {
+    const raw = JSON.parse(localStorage.getItem('goals')) || sample
+		setGoals(raw);
+  },[]);
+
+  useEffect(() => {
+    localStorage.setItem('goals', JSON.stringify(goals))
+  },[goals]);
 
   return (
 		<div className='App'>
