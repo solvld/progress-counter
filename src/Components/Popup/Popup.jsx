@@ -20,11 +20,11 @@ function Popup({active, setActive}) {
 				<ul>
 					<li>
 						<label htmlFor='amount'>Amount</label>
-						<input type='number' name='amount' min='1' />
+						<input type='number' name='amount' min='1' placeholder='0' />
 					</li>
 					<li>
 						<label htmlFor='step'>Step</label>
-						<input type='number' name='step' min='1' />
+						<input type='number' name='step' min='1' placeholder='0' />
 					</li>
 				</ul>
 
