@@ -4,11 +4,11 @@ import "./_goal.scss"
 
 function Goal(props) {
   const [active, setActive] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [count, setCount] = useState(props.count);
 
   const showMenu = () => setActive((prev) => !prev); //useEffect for close each one if click target on other element
 
-  let percents = Math.floor((progress / props.amount) * 100);
+  let percents = Math.floor((count / props.amount) * 100);
 
 	return (
 		<div className='Goal'>
@@ -95,14 +95,14 @@ function Goal(props) {
 				</div>
 				<div className='bottom-content'>
 					<div className='bottom-left'>
-						<p className='description'>{props.text}</p>
+						<p className='description'>{props.goal}</p>
 						<p className='progress'>
-							{progress} / {props.amount}
+							{count} / {props.amount}
 						</p>
 					</div>
 					<button
 						className='button-plus'
-						onClick={() => setProgress(prev => prev + props.step)}
+						onClick={() => setCount(prev => prev + props.step)}
 						style={{ stroke: props.color }}
 					>
 						<svg

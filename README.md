@@ -1,6 +1,6 @@
 CRUD app for set your goals and keep track progress.
 
-[] - create new //
+[X] - create new
 
 [] - store in local storage
 
@@ -11,3 +11,5 @@ CRUD app for set your goals and keep track progress.
 [] - edit & update ls
 
 [] - confetti
+
+[] - popup validation
