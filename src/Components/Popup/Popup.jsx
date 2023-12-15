@@ -7,9 +7,9 @@ const colorNames = Object.keys(colors);
 
 function Popup({active, setActive, goals, setGoals}) {
   const [color, setColor] = useState(colors.$grey);
-  const [goal, setGoal] = useState(null);
-  const [amount, setAmount] = useState(null);
-  const [step, setStep] = useState(null);
+  const [goal, setGoal] = useState('');
+  const [amount, setAmount] = useState('');
+  const [step, setStep] = useState('');
 
   
   const goalStyle = { backgroundColor: color };
