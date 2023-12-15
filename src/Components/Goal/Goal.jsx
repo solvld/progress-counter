@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState , useContext} from 'react'
+import { Context } from '../../context';
 
 import "./_goal.scss"
 
-function Goal(props) {
-  const [active, setActive] = useState(false);
-  const [count, setCount] = useState(props.count);
+function Goal({ id, goal, amount, color, count }) {
+	const [active, setActive] = useState(false);
+	const { incrementCount, undoCount, resetCount, removeGoal } = useContext(Context);
 
-  const showMenu = () => setActive((prev) => !prev); //useEffect for close each one if click target on other element
+	const showMenu = () => setActive(prev => !prev) //for close each one if click target on other element
 
-  let percents = Math.floor((count / props.amount) * 100);
+	let percents = Math.floor((count / amount) * 100);
 
 	return (
 		<div className='Goal'>
@@ -35,7 +36,7 @@ function Goal(props) {
 						</i>
 
 						<ul className='settings-menu'>
-							<li>
+							<li onClick={() => removeGoal(id)}> 
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -50,7 +51,7 @@ function Goal(props) {
 								</svg>
 								Edit
 							</li>
-							<li>
+							<li onClick={() => undoCount(id)}>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -67,7 +68,7 @@ function Goal(props) {
 								</svg>
 								Undo
 							</li>
-							<li>
+							<li onClick={() => resetCount(id)} >
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
 									width='16'
@@ -95,15 +96,15 @@ function Goal(props) {
 				</div>
 				<div className='bottom-content'>
 					<div className='bottom-left'>
-						<p className='description'>{props.goal}</p>
+						<p className='description'>{goal}</p>
 						<p className='progress'>
-							{count} / {props.amount}
+							{count} / {amount}
 						</p>
 					</div>
 					<button
 						className='button-plus'
-						onClick={() => setCount(prev => prev + props.step)}
-						style={{ stroke: props.color }}
+						onClick={() => incrementCount(id)}
+						style={{ stroke: color }}
 					>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -125,7 +126,7 @@ function Goal(props) {
 			</div>
 			<div
 				className='progress-fill'
-				style={{ backgroundColor: props.color, height: `${percents}%` }}
+				style={{ backgroundColor: color, height: `${percents}%` }}
 			></div>
 		</div>
 	)

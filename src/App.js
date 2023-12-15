@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './Components/NavBar/NavBar';
-
 import './App.scss';
+import NavBar from './Components/NavBar/NavBar';
 import GoalTable from './Components/GoalTable/GoalTable';
 import Popup from './Components/Popup/Popup';
+import {Context} from './context';
 
 function App() {
   const [popupActive, setPopupActive] = useState(false);
@@ -23,17 +23,56 @@ function App() {
     localStorage.setItem('goals', JSON.stringify(goals))
   },[goals]);
 
+  const removeGoal = id => {
+    setGoals(goals.filter(goal => goal.id !== id)) 
+  };
+
+  const incrementCount = id => {
+    setGoals(goals.map(goal =>{
+      if (goal.id === id){
+        goal.count = goal.count + goal.step
+      }
+      return goal
+    }))
+  }
+
+  const undoCount = id => {
+		setGoals(
+			goals.map(goal => {
+				if (goal.id === id && goal.count !== 0) {
+					goal.count = goal.count - goal.step
+				}
+				return goal
+			})
+		)
+	}
+
+  const resetCount = id => {
+		setGoals(
+			goals.map(goal => {
+				if (goal.id === id) {
+					goal.count = 0
+				}
+				return goal
+			})
+		)
+	}
+
   return (
-		<div className='App'>
-			<NavBar addNew={popupActive} setAddNew={setPopupActive} />
-			<GoalTable allGoals={goals} />
-			<Popup
-				active={popupActive}
-				setActive={setPopupActive}
-				goals={goals}
-				setGoals={setGoals}
-			/>
-		</div>
+		<Context.Provider value={{
+      removeGoal, incrementCount, undoCount, resetCount
+    }}>
+			<div className='App'>
+				<NavBar addNew={popupActive} setAddNew={setPopupActive} />
+				<GoalTable allGoals={goals} />
+				<Popup
+					active={popupActive}
+					setActive={setPopupActive}
+					goals={goals}
+					setGoals={setGoals}
+				/>
+			</div>
+		</Context.Provider>
 	)
 }
 

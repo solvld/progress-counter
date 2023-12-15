@@ -15,6 +15,7 @@ function GoalTable({ allGoals }) {
 					step={step}
           count={count}
 					color={color}
+          id={id}
 				/>
 			))}
 		</div>
