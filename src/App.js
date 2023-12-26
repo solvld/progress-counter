@@ -4,10 +4,12 @@ import NavBar from './Components/NavBar/NavBar';
 import GoalTable from './Components/GoalTable/GoalTable';
 import Popup from './Components/Popup/Popup';
 import {Context} from './context';
+import Confetti from 'react-confetti';
 
 function App() {
   const [popupActive, setPopupActive] = useState(false);
   const [goals, setGoals] = useState([]);
+  const [isShowConfetti, setIsShowConfetti] = useState(true);
 
   const sample = [
     {id: 0, goal: 'Reed 10 books', amount: 10, step: 1, count: 4, color: '#0A84FF' },
@@ -22,6 +24,12 @@ function App() {
   useEffect(() => {
     localStorage.setItem('goals', JSON.stringify(goals))
   },[goals]);
+
+  useEffect(() => {
+    isShowConfetti && setTimeout(() => {
+      setIsShowConfetti(false)
+    }, 7000);
+  },[isShowConfetti])
 
   const removeGoal = id => {
     setGoals(goals.filter(goal => goal.id !== id)) 
@@ -63,6 +71,9 @@ function App() {
       removeGoal, incrementCount, undoCount, resetCount
     }}>
 			<div className='App'>
+				{isShowConfetti && (
+					<Confetti recycle={false} numberOfPieces={400} friction={1} />
+				)}
 				<NavBar addNew={popupActive} setAddNew={setPopupActive} />
 				<GoalTable allGoals={goals} />
 				<Popup
