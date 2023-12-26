@@ -54,7 +54,7 @@ function Popup({active, setActive, goals, setGoals}) {
 					}}
 					value={goal && capitalizeFirstChar(goal)}
 					type='text'
-					class='capitalized'
+					className='capitalized'
 					name='goal'
 					placeholder='Goal'
 					autoComplete='off'
