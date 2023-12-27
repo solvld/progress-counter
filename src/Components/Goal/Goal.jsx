@@ -1,4 +1,4 @@
-import React, { useState , useContext} from 'react'
+import React, { useState, useEffect, useRef, useContext} from 'react'
 import { Context } from '../../context';
 import { ReactComponent as PlusBtn } from '../../assets/icons/plus.svg'
 import { ReactComponent as Settings } from "../../assets/icons/settings.svg";
@@ -12,7 +12,18 @@ function Goal({ id, goal, amount, color, count }) {
 	const [active, setActive] = useState(false);
 	const { incrementCount, undoCount, resetCount, removeGoal } = useContext(Context);
 
-	const showMenu = () => setActive(prev => !prev) //for close each one if click target on other element
+	const showMenu = () => setActive(prev => !prev)
+  let menuRef = useRef();
+
+  useEffect(()=> {
+    let handler = (e) => {
+      if(!menuRef.current.contains(e.target)){
+        setActive(false)
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  });
 
 	let percents = Math.floor((count / amount) * 100);
 
@@ -21,7 +32,7 @@ function Goal({ id, goal, amount, color, count }) {
 			<div className='content'>
 				<div className='top-content'>
 					<p className='percents'>{percents}%</p>
-					<div className={active ? 'settings active' : 'settings'}>
+					<div className={active ? 'settings active' : 'settings'} ref={menuRef}>
 						<i className='settings-btn' onClick={showMenu}>
 							<Settings />
 						</i>
