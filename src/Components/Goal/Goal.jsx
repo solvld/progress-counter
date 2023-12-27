@@ -8,9 +8,16 @@ import {ReactComponent as Delete} from '../../assets/icons/delete.svg';
 
 import "./_goal.scss"
 
-function Goal({ id, goal, amount, color, count }) {
+function Goal({ id, goal, amount, color, count, step }) {
 	const [active, setActive] = useState(false);
-	const { incrementCount, undoCount, resetCount, removeGoal } = useContext(Context);
+	const {
+		incrementCount,
+		undoCount,
+		resetCount,
+		removeGoal,
+		setIsShowConfetti,
+	} = useContext(Context)
+
 
 	const showMenu = () => setActive(prev => !prev)
   let menuRef = useRef();
@@ -62,7 +69,12 @@ function Goal({ id, goal, amount, color, count }) {
 					</div>
 					<button
 						className='button-plus'
-						onClick={() => incrementCount(id)}
+						onClick={() => {
+              incrementCount(id);
+              if(count === amount - step){
+                setIsShowConfetti(true)
+              }
+            }}
 						style={{ stroke: color }}
 					>
 						<PlusBtn />

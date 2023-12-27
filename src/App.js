@@ -9,7 +9,7 @@ import Confetti from 'react-confetti';
 function App() {
   const [popupActive, setPopupActive] = useState(false);
   const [goals, setGoals] = useState([]);
-  const [isShowConfetti, setIsShowConfetti] = useState(true);
+  const [isShowConfetti, setIsShowConfetti] = useState(false);
 
   const sample = [
     {id: 0, goal: 'Reed 10 books', amount: 10, step: 1, count: 4, color: '#0A84FF' },
@@ -68,11 +68,11 @@ function App() {
 
   return (
 		<Context.Provider value={{
-      removeGoal, incrementCount, undoCount, resetCount
+      removeGoal, incrementCount, undoCount, resetCount, setIsShowConfetti
     }}>
 			<div className='App'>
 				{isShowConfetti && (
-					<Confetti recycle={false} numberOfPieces={400} friction={1} />
+					<Confetti recycle={false} numberOfPieces={400} friction={0.99} />
 				)}
 				<NavBar addNew={popupActive} setAddNew={setPopupActive} />
 				<GoalTable allGoals={goals} />
