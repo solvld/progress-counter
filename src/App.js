@@ -12,7 +12,7 @@ function App() {
   const [isShowConfetti, setIsShowConfetti] = useState(false);
 
   const sample = [
-    {id: 0, goal: 'Reed 10 books', amount: 10, step: 1, count: 4, color: '#0A84FF' },
+    {id: 0, goal: 'Read 10 books', amount: 10, step: 1, count: 4, color: '#0A84FF' },
     {id: 1, goal: '100 Push-ups', amount: 100, step: 20, count: 20, color: '#FE9F07' }
   ]
 
@@ -72,7 +72,7 @@ function App() {
     }}>
 			<div className='App'>
 				{isShowConfetti && (
-					<Confetti recycle={false} numberOfPieces={400} friction={0.99} />
+					<Confetti recycle={false} numberOfPieces={400} friction={0.99} gravity={0.3} />
 				)}
 				<NavBar addNew={popupActive} setAddNew={setPopupActive} />
 				<GoalTable allGoals={goals} />

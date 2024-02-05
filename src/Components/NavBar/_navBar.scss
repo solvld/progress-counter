@@ -7,11 +7,17 @@ nav {
   max-width: 1400px;
   margin: auto;
   padding: 0 40px;
+  @media screen and (max-width: 600px) {
+    padding-top: 16px;
+  }
 
   h1 {
     color: $text-color;
     font-weight: 400;
     font-size: 64px;
+    @media screen and (max-width: 600px) {
+      font-size: 32px;
+    }
   }
 
   .add-button{
