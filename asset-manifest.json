@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/progress-counter/static/css/main.0ae2a287.css",
-    "main.js": "/progress-counter/static/js/main.58e569d0.js",
+    "main.css": "/progress-counter/static/css/main.dd7b80e9.css",
+    "main.js": "/progress-counter/static/js/main.fb6556c6.js",
     "static/media/undo.svg": "/progress-counter/static/media/undo.84a3180c21cac8204212fc59bdbd8554.svg",
     "static/media/settings.svg": "/progress-counter/static/media/settings.7fb1226c7f2ed895298efd56d749158f.svg",
     "static/media/reset.svg": "/progress-counter/static/media/reset.523ab278574da72bfda69a705524f4f2.svg",
     "static/media/delete.svg": "/progress-counter/static/media/delete.b90d19806e3f28b074942192bec672fd.svg",
     "index.html": "/progress-counter/index.html",
     "static/media/plus.svg": "/progress-counter/static/media/plus.cc89640c3b512bbcc198595a1e138ba2.svg",
-    "main.0ae2a287.css.map": "/progress-counter/static/css/main.0ae2a287.css.map",
-    "main.58e569d0.js.map": "/progress-counter/static/js/main.58e569d0.js.map"
+    "main.dd7b80e9.css.map": "/progress-counter/static/css/main.dd7b80e9.css.map",
+    "main.fb6556c6.js.map": "/progress-counter/static/js/main.fb6556c6.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ae2a287.css",
-    "static/js/main.58e569d0.js"
+    "static/css/main.dd7b80e9.css",
+    "static/js/main.fb6556c6.js"
   ]
 }
