@@ -2,7 +2,7 @@
 
 .Goal {
   position: relative;
-  background-color: $line-transparent;
+  background-color: var(--line-transparent);
   border-radius: 30px;
   overflow: hidden;
   height: 200px;
@@ -22,21 +22,21 @@
       justify-content: space-between;
       margin: 0 4px;
       .percents {
-        color: $text-color;
+        color: var(--text-color);
       }
 
       .settings{
         position: relative;
         .settings-btn {
           cursor: pointer;
-          color: $bg-main;
+          color: var(--bg-main);
         }
 
         .settings-menu{
           position: absolute;
           bottom: -66px;
           right: -14px;
-          background-color: $line;
+          background-color: var(--line);
           border-radius: 8px;
           transform: scale(0);
           transform-origin: top;
@@ -52,24 +52,25 @@
             align-items: center;
             cursor: pointer;
             padding: 2px 8px;
-            background-color: $line;
+            background-color: var(--line);
             font-size: 12px;
             transition: all 0.1s ease-in;
 
             &:first-child{
               border-radius: 8px 8px 0px 0px;
-              border-bottom: 0.8px $line-border solid;
+              border-bottom: 0.8px var(--line-border) solid;
             }
             &:last-child{
               border-radius: 0px 0px 8px 8px;
-              border-top: 0.8px $line-border solid;
+              border-top: 0.8px var(--line-border) solid;
             }
 
             &:hover{
-              background-color: darken($line, 2%);
+              // background-color: darken(var(--line), 2%);
             }
             svg{
               margin-right: 4px;
+              color: var(--text-color);
             }
           }
         }
@@ -88,10 +89,10 @@
       align-items: center;
       .bottom-left {
         .description {
-          color: $text-color;
+          color: var(--text-color);
         }
         .progress {
-          color: $text-color;
+          color: var(--text-color);
           font-size: 12px;
         }
       }
@@ -106,13 +107,13 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: $line-transparent;
-        stroke: $grey;
+        background-color: var(--line-transparent);
+        stroke: var(--bg-blur);
 
-        transition: background-color 0.25s ease-in-out;
-        &:hover{
-          background-color: lighten($line-transparent, 5%);
-        }
+        // transition: background-color 0.25s ease-in-out;
+        // &:hover{
+        //   // background-color: lighten(var(--line-transparent), 5%);
+        // }
         &:active{
           scale: 0.85;
         }

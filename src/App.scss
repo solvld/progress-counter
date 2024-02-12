@@ -1,6 +1,6 @@
 @import "./styles/variables";
 
 .App {
-  color: $text-color;
+  color: var(--text-color);
 
 }

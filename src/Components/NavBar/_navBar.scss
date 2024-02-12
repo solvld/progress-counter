@@ -12,7 +12,7 @@ nav {
   }
 
   h1 {
-    color: $text-color;
+    color: var(--text-color);
     font-weight: 400;
     font-size: 64px;
     @media screen and (max-width: 600px) {
@@ -25,6 +25,35 @@ nav {
     cursor: pointer;
     padding: 10px 12px;
     border-radius: 15px;
-    border: 1px solid $text-color;
+    border: 1px solid var(--text-color);
   }
+
+  .toggleBtn {
+    width: 40px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: var(--bg-main);
+      width: 18px;
+      height: 18px;
+      border-radius: 40px;
+      margin: 1px;
+      transition: 0.2s;
+    }
+  }
+  input:checked + .toggleBtn::before {
+    transform: translateX(20px);
+  }
+
+  input {
+    display: none;
+  }
+
 }
