@@ -30,6 +30,9 @@ Progress Counter is a web application designed to track and achieve your persona
 **Progress Management:**
    - Each card includes buttons to reset progress or modify the current value, providing flexibility and control over your goals.
 
+**Theme Toggler:**
+   - Quickly switch between light and dark themes for optimal readability and personalized browsing.
+
 ## Practical Application
 
 - Track your progress in achieving personal goals, such as reading books, visiting museums, and other engaging activities.
