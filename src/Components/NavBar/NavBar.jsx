@@ -10,7 +10,7 @@ function NavBar({addNew, setAddNew}) {
   return (
     <nav className='Navbar'>
       <h1>Goals:</h1>
-      <input type='checkbox' id='check' onChange={onToggleTheme}/>
+      <input type='checkbox' id='check' checked={isDarkTheme} onChange={onToggleTheme}/>
       <label htmlFor="check" className='toggleBtn'></label>
       <button className='add-button' onClick={clickHandler}>Add New</button>
     </nav>
